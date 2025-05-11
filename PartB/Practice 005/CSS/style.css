@@ -1,0 +1,481 @@
+/* 基础重置和字体设置 */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 新的配色方案 */
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --secondary-color: #22d3ee;
+  --accent-color: #f59e0b;
+  --dark-color: #1f2937;
+  --light-color: #ffffff;
+  --bg-color: #f9fafb;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --text-color: #374151;
+  --text-light: #6b7280;
+  --error-color: #ef4444;
+  --success-color: #10b981;
+  
+  /* 阴影和效果 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* 其他设计变量 */
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1200px;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 容器样式 */
+.wrapper-main {
+  max-width: var(--max-width);
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 头部导航样式 */
+header {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-header-main {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-header-main ul {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-header-main ul li a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-header-main ul li a:hover {
+  color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* 登录区域样式 */
+.header-login {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-login form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-login form input {
+  height: 40px;
+  width: 180px;
+  padding: 0 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: 14px;
+  transition: var(--transition);
+  background-color: var(--card-bg);
+}
+
+.header-login form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.header-login form button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-login form button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.header-signup {
+  height: 40px;
+  padding: 0 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.header-signup:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 主要内容区域 */
+main {
+  padding: 40px 0 60px;
+  min-height: calc(100vh - 72px);
+}
+
+.section-default {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 48px;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 添加装饰性背景元素 */
+.section-default::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-default h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 16px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-default p {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.login-status {
+  font-size: 24px !important;
+  font-weight: 600;
+  color: var(--text-color) !important;
+  margin: 20px 0;
+}
+
+/* 表单样式改进 */
+.form-signup,
+.form-resetpwd {
+  max-width: 400px;
+  margin: 32px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.form-signup input,
+.form-resetpwd input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-size: 16px;
+  transition: var(--transition);
+  background-color: var(--card-bg);
+}
+
+.form-signup input:focus,
+.form-resetpwd input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-signup button,
+.form-resetpwd button {
+  width: 100%;
+  height: 52px;
+  padding: 0 24px;
+  margin-top: 8px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--light-color);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-signup button:hover,
+.form-resetpwd button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-signup button:active,
+.form-resetpwd button:active {
+  transform: translateY(0);
+}
+
+/* 错误和成功消息样式改进 */
+.signuperror,
+.signupsuccess {
+  padding: 16px 20px !important;
+  border-radius: var(--border-radius-sm) !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+  font-weight: 500 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.signuperror {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: var(--error-color) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.signupsuccess {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: var(--success-color) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* 忘记密码链接 */
+.p-forgetpwd {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  transition: var(--transition);
+  position: relative;
+}
+
+.p-forgetpwd:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* 响应式设计改进 */
+@media (max-width: 1024px) {
+  .wrapper-main {
+    width: 95%;
+  }
+  
+  .header-container {
+    padding: 0 16px;
+  }
+  
+  .nav-header-main {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .nav-header-main {
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .nav-header-main ul {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .header-login {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .header-login form {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .header-login form input,
+  .header-login form button,
+  .header-signup {
+    width: 100%;
+  }
+  
+  .section-default {
+    padding: 32px 24px;
+  }
+  
+  .section-default h1 {
+    font-size: 28px;
+  }
+  
+  main {
+    padding: 20px 0 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-default {
+    padding: 24px 16px;
+  }
+  
+  .section-default h1 {
+    font-size: 24px;
+  }
+  
+  .form-signup input,
+  .form-resetpwd input {
+    height: 44px;
+    font-size: 15px;
+  }
+  
+  .form-signup button,
+  .form-resetpwd button {
+    height: 48px;
+    font-size: 15px;
+  }
+}
+
+/* 添加平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 提升可访问性 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 添加载入动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-default {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 打印样式 */
+@media print {
+  header, .header-login, .p-forgetpwd {
+    display: none !important;
+  }
+  
+  body {
+    background-color: white;
+  }
+  
+  .section-default {
+    box-shadow: none;
+  }
+}
